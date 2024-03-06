@@ -1,0 +1,88 @@
+﻿@model IEnumerable<ENTIDAD.Departamento>
+
+@{
+    ViewBag.Title = "Listado de departamentos";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<h2>Departamentos</h2>
+
+<p>
+    @Html.ActionLink("Crear Departamento", "Crear", "Departamento")
+</p>
+<table class="table" id="tableDept">
+    <thead>
+        <tr>
+            <th>
+                @Html.DisplayNameFor(model => model.NombreDepartamento)
+            </th>
+            <th></th>
+        </tr>
+    </thead>
+    <tbody>
+        @foreach (var item in Model)
+        {
+            <tr>
+                <td>
+                    @Html.DisplayFor(modelItem => item.NombreDepartamento)
+                </td>
+                <td>
+                    <a class="btn btn-primary btn-xs" title="Editar" href="@Url.Action("Editar", "Departamento", new { id = item.DepartamentoId })">
+                        <i class="glyphicon glyphicon-edit"></i>
+                    </a>
+                    <a class="btn btn-info btn-xs" title="Detalles" href="@Url.Action("GetDepartamento", "Departamento", new { id = item.DepartamentoId })">
+                        <i class="glyphicon glyphicon-pencil"></i>
+                    </a>
+                    <a class="btn btn-danger btn-xs" onclick="EliminarDepartamento(@item.DepartamentoId)" title="Eliminar">
+                        <i class="glyphicon glyphicon-trash"></i></a>
+                        @*@Html.ActionLink("Editar", "Editar", new { id = item.DepartamentoId }) |
+                        @Html.ActionLink("Detalle", "GetDepartamento", new { id = item.DepartamentoId }) |
+                        @Html.ActionLink("Eliminar", "Eliminar", new { id = item.DepartamentoId })*@
+                </td>
+            </tr>
+        }
+    </tbody>
+</table>
+
+@section scripts{
+
+    <script>
+        $("#tableDept").DataTable({
+            "pageLength": 5,
+            lengthMenu: [10, 20, 30]
+        });
+
+        function EliminarDepartamento(iddep) {
+            console.log(iddep);
+            $.alert({
+                title: 'Eliminar Departamento!',
+                content: 'Esta serguro de eliminar este Departamento ',
+                buttons: {
+                    confirmar: function () {
+                        LoadingOverlayShow("#tableDept")
+                        $.ajax({
+                            url: "/departamento/eliminar",
+                            type: "post",
+                            data: { id: iddep }
+                        }).done(function (response) {
+                            console.log(response);
+                            LoadingOverlayHide("#tableDept")
+                            if (response.ok) {
+                                alert("Departamento Eliminado Correctamente.");
+                                window.location = response.toRedirect;
+                            } else {
+                                alert(response.msg);
+                            }
+                        }).fail(function (jqXHR, textStatus, errorThrown) {
+                            LoadingOverlayHide("#tableDept")
+                            console.error(errorThrown);
+                        });
+                    },
+                    cancelar: function () {
+
+                    }
+                }
+            });
+        }
+    </script>
+}

@@ -1,0 +1,27 @@
+﻿@model ENTIDAD.Departamento
+
+@{
+    ViewBag.Title = "GetDepartamento";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<h2>GetDepartamento</h2>
+
+<div>
+    <h4>Departamento</h4>
+    <hr />
+    <dl class="dl-horizontal">
+        <dt>
+            @Html.DisplayNameFor(model => model.NombreDepartamento)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.NombreDepartamento)
+        </dd>
+
+    </dl>
+</div>
+<p>
+    @Html.ActionLink("Editar", "Edit", new { id = Model.DepartamentoId }) |
+    @Html.ActionLink("Regresar", "Index")
+</p>

@@ -1,0 +1,130 @@
+﻿@model ENTIDAD.Empleado
+
+@{
+    ViewBag.Title = "Crear";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<form action="@Url.Action("Crear", "Empleado")" method="post" id="frmEmpleado">
+    @Html.AntiForgeryToken()
+
+    <div class="form-horizontal">
+        <h4>Crear Nuevo Empleado</h4>
+        <hr />
+        @Html.ValidationSummary(true, "", new { @class = "text-danger" })
+        <div class="form-group">
+            <label class="control-label col-md-2">Nombres del Empleado</label>
+            <div class="col-md-10">
+                <input type="text" class="form-control" id="Nombre" name="Nombre"
+                       placeholder="Ingrese nombre del Empleado" />
+                @Html.ValidationMessageFor(model => model.Nombre, "", new { @class = "text-danger" })
+            </div>
+        </div>
+        <div class="form-group">
+            <label class="control-label col-md-2">Apellidos del Empleado</label>
+            <div class="col-md-10">
+                <input type="text" class="form-control" id="Apellido" name="Apellido"
+                       placeholder="Ingrese apellido del Empleado" />
+                @Html.ValidationMessageFor(model => model.Apellido, "", new { @class = "text-danger" })
+            </div>
+        </div>
+        <div class="form-group">
+            <label class="control-label col-md-2">Email</label>
+            <div class="col-md-10">
+                <input type="text" class="form-control" id="Email" name="Email"
+                       placeholder="Email" />
+                @Html.ValidationMessageFor(model => model.Email, "", new { @class = "text-danger" })
+            </div>
+        </div>
+        <div class="form-group">
+            <label class="control-label col-md-2">Direccion</label>
+            <div class="col-md-10">
+                <input type="text" class="form-control" id="Direccion" name="Direccion"
+                       placeholder="Direccion" />
+                @Html.ValidationMessageFor(model => model.Direccion, "", new { @class = "text-danger" })
+            </div>
+        </div>
+        <div class="form-group">
+            <label class="control-label col-md-2">Celular</label>
+            <div class="col-md-10">
+                <input type="text" class="form-control" id="Celular" name="Celular"
+                       placeholder="Celular" />
+                @Html.ValidationMessageFor(model => model.Celular, "", new { @class = "text-danger" })
+            </div>
+        </div>
+
+        <div class="form-group">
+            <label class="control-label col-md-2">Departamento</label>
+            <div class="col-md-10">
+                <select class="form-control" id="DepartamentoId" name="DepartamentoId">
+                    <option value="">Seleccione</option>
+                </select>
+            </div>
+        </div>
+
+        <div class="form-group">
+            <div class="col-md-offset-2 col-md-10">
+                <input type="submit" value="Crear Empleado" class="btn btn-primary" />
+            </div>
+        </div>
+    </div>
+</form>
+
+<div>
+    @Html.ActionLink("Regresar", "Index")
+</div>
+
+@section Scripts {
+    @Scripts.Render("~/bundles/jqueryval")
+
+    <script>
+        getData();
+        function getData() {
+            $.ajax({
+                type: "GET",
+                url: '/Departamento/GetDepartamentos',
+                dataType: 'json',
+                success: function (result) {
+                    $.each(result.data, function (key, item) {
+                        $("#DepartamentoId").append('<option value=' + item.DepartamentoId + '>' + item.NombreDepartamento + '</option>');
+                    });
+                },
+                error: function (data) {
+                    alert('error');
+                }
+            });
+        }
+
+        $("#frmEmpleado").submit(function (event) {
+            event.preventDefault();
+            var dptoId = $("#DepartamentoId").val();
+            if (dptoId == "") {
+                alert("Debe escoger un departamento!!!");
+                return;
+            }
+
+            var post_url = $(this).attr("action");
+            var request_method = $(this).attr("method");
+            var form_data = $(this).serializeArray();
+
+            LoadingOverlayShow("#frmEmpleado")
+            $.ajax({
+                url: post_url,
+                type: request_method,
+                data: form_data
+            }).done(function (response) {
+                console.log(response);
+                LoadingOverlayHide("#frmEmpleado")
+                if (response.ok) {
+                    alert("Empleado creado correctamente.");
+                    window.location = response.toRedirect;
+                } else {
+                    alert(response.msg);
+                }
+            }).fail(function (jqXHR, textStatus, errorThrown) {
+                LoadingOverlayHide("#frmEmpleado")
+                console.error(errorThrown);
+            });
+        });
+    </script>
+}

@@ -1,0 +1,43 @@
+﻿@model ENTIDAD.Proyecto
+
+@{
+    ViewBag.Title = "Detalles";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<h2>Detalles</h2>
+
+<div>
+    <h4>Proyecto</h4>
+    <hr />
+    <dl class="dl-horizontal">
+        <dt>
+            @Html.DisplayNameFor(model => model.NombreProyecto)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.NombreProyecto)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.FechaInicio)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.FechaInicio)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.FechaFin)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.FechaFin)
+        </dd>
+
+    </dl>
+</div>
+<p>
+    @Html.ActionLink("Edit", "Edit", new { id = Model.ProyectoId }) |
+    @Html.ActionLink("Back to List", "Index")
+</p>

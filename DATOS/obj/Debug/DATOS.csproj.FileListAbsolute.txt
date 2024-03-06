@@ -1,0 +1,14 @@
+C:\Users\edgar\OneDrive\Escritorio\cistal report pdf\DEMO ASPNET MVC EN CAPAS\DATOS\bin\Debug\DATOS.dll.config
+C:\Users\edgar\OneDrive\Escritorio\cistal report pdf\DEMO ASPNET MVC EN CAPAS\DATOS\bin\Debug\DATOS.dll
+C:\Users\edgar\OneDrive\Escritorio\cistal report pdf\DEMO ASPNET MVC EN CAPAS\DATOS\bin\Debug\DATOS.pdb
+C:\Users\edgar\OneDrive\Escritorio\cistal report pdf\DEMO ASPNET MVC EN CAPAS\DATOS\bin\Debug\ENTIDAD.dll
+C:\Users\edgar\OneDrive\Escritorio\cistal report pdf\DEMO ASPNET MVC EN CAPAS\DATOS\bin\Debug\EntityFramework.dll
+C:\Users\edgar\OneDrive\Escritorio\cistal report pdf\DEMO ASPNET MVC EN CAPAS\DATOS\bin\Debug\EntityFramework.SqlServer.dll
+C:\Users\edgar\OneDrive\Escritorio\cistal report pdf\DEMO ASPNET MVC EN CAPAS\DATOS\bin\Debug\ENTIDAD.pdb
+C:\Users\edgar\OneDrive\Escritorio\cistal report pdf\DEMO ASPNET MVC EN CAPAS\DATOS\bin\Debug\EntityFramework.xml
+C:\Users\edgar\OneDrive\Escritorio\cistal report pdf\DEMO ASPNET MVC EN CAPAS\DATOS\bin\Debug\EntityFramework.SqlServer.xml
+C:\Users\edgar\OneDrive\Escritorio\cistal report pdf\DEMO ASPNET MVC EN CAPAS\DATOS\obj\Debug\DATOS.csproj.AssemblyReference.cache
+C:\Users\edgar\OneDrive\Escritorio\cistal report pdf\DEMO ASPNET MVC EN CAPAS\DATOS\obj\Debug\DATOS.csproj.CoreCompileInputs.cache
+C:\Users\edgar\OneDrive\Escritorio\cistal report pdf\DEMO ASPNET MVC EN CAPAS\DATOS\obj\Debug\DATOS.csproj.CopyComplete
+C:\Users\edgar\OneDrive\Escritorio\cistal report pdf\DEMO ASPNET MVC EN CAPAS\DATOS\obj\Debug\DATOS.dll
+C:\Users\edgar\OneDrive\Escritorio\cistal report pdf\DEMO ASPNET MVC EN CAPAS\DATOS\obj\Debug\DATOS.pdb

@@ -1,0 +1,6 @@
+C:\Users\edgar\OneDrive\Escritorio\cistal report pdf\DEMO ASPNET MVC EN CAPAS\ENTIDAD\bin\Debug\ENTIDAD.dll
+C:\Users\edgar\OneDrive\Escritorio\cistal report pdf\DEMO ASPNET MVC EN CAPAS\ENTIDAD\bin\Debug\ENTIDAD.pdb
+C:\Users\edgar\OneDrive\Escritorio\cistal report pdf\DEMO ASPNET MVC EN CAPAS\ENTIDAD\obj\Debug\ENTIDAD.csproj.AssemblyReference.cache
+C:\Users\edgar\OneDrive\Escritorio\cistal report pdf\DEMO ASPNET MVC EN CAPAS\ENTIDAD\obj\Debug\ENTIDAD.csproj.CoreCompileInputs.cache
+C:\Users\edgar\OneDrive\Escritorio\cistal report pdf\DEMO ASPNET MVC EN CAPAS\ENTIDAD\obj\Debug\ENTIDAD.dll
+C:\Users\edgar\OneDrive\Escritorio\cistal report pdf\DEMO ASPNET MVC EN CAPAS\ENTIDAD\obj\Debug\ENTIDAD.pdb
